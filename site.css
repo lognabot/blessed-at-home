@@ -623,17 +623,7 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
   position: relative;
   overflow: hidden;
 }
-.cta-banner::before {
-  content: '✝';
-  position: absolute;
-  font-size: 30rem;
-  color: rgba(255,255,255,0.02);
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  font-family: serif;
-}
+.cta-banner::before { display: none; }
 .cta-banner .eyebrow-label { color: var(--gold-lt); position: relative; }
 .cta-banner h2 { color: var(--white); margin-bottom: 14px; position: relative; }
 .cta-banner p { color: rgba(255,255,255,0.72); max-width: 500px; margin: 0 auto 32px; position: relative; }
