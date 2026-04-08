@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Us | Blessed At Home</title>
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .partner-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      transition: border-color 0.2s, box-shadow 0.25s, transform 0.18s;
+    }
+    .partner-card:hover {
+      border-left-color: var(--forest);
+      box-shadow: 0 10px 30px rgba(44,74,62,0.1);
+      transform: translateY(-2px);
+    }
+    .partner-card .pt-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .partner-card h3 { color: var(--forest); margin-bottom: 8px; font-size: 1rem; font-family: 'Nunito', sans-serif; font-weight: 600; }
+    .partner-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.72; }
+    .partner-card .badge {
+      display: inline-block;
+      background: var(--gold-bg);
+      border: 1px solid rgba(196,147,40,0.3);
+      color: #8a6414;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 10px;
+      margin-top: 12px;
+      font-family: 'Nunito', sans-serif;
+    }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .how-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .how-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .how-step h4 { font-family: 'Nunito', sans-serif; color: var(--forest); font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .how-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+    .contact-panel {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 34px;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 24px rgba(30,26,20,0.06);
+    }
+    .contact-panel h3 { color: var(--forest); font-size: 1.15rem; margin-bottom: 8px; }
+    .contact-panel p { font-size: 0.88rem; color: var(--muted); margin-bottom: 22px; line-height: 1.7; }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .t-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .t-card .t-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .t-card .t-attr { font-size: 0.75rem; color: var(--gold-lt); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Nunito', sans-serif; }
+    @media(max-width:720px){ .how-layout { grid-template-columns: 1fr; gap: 36px; } }
+    @media(max-width:680px){
+      .partner-grid { grid-template-columns: 1fr; }
+      .promise-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .contact-panel { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="cross-mark">✝</span>
+      <div>Blessed At Home<span class="logo-tagline">Home Health Agency</span></div>
+    </a>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="partners.html" class="active">Partner With Us</a></li>
+      <li><a href="payment.html">Payment Options</a></li>
+      <li><a href="referral.html" class="nav-cta">Make a Referral</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('mobile-open');
+    this.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+</script>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">✝ Built for Healthcare Professionals</div>
+    <h1>A Partner <em>Worthy</em><br/>of Your Trust</h1>
+    <p class="lead">When you refer a client to Blessed At Home, your reputation is on the line too. We take that seriously — and we work every day to be the agency you're proud to recommend.</p>
+    <div class="hero-scripture">
+      "Two are better than one, because they have a good return for their labor."
+      <cite>Ecclesiastes 4:9</cite>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot">✝</span> Faith-Inspired Agency</div>
+  <div class="trust-item"><span class="trust-dot">✓</span> Screened &amp; Insured</div>
+  <div class="trust-item"><span class="trust-dot">📞</span> Rapid Referral Response</div>
+  <div class="trust-item"><span class="trust-dot">📋</span> Detailed Visit Notes</div>
+  <div class="trust-item"><span class="trust-dot">🔄</span> Adaptive Care Plans</div>
+</div>
+
+<!-- WHO WE PARTNER WITH -->
+<section class="section section-cream">
+  <div class="section-inner" style="max-width:1180px;margin:0 auto;">
+    <div class="eyebrow-label">Referral Partners</div>
+    <h2 style="color:var(--forest)">Who We Work With</h2>
+    <div class="faith-rule"><span>✝</span></div>
+    <p class="section-intro">Blessed At Home serves as a trusted extension of your care team. We partner with a wide range of healthcare and community organizations across Central Florida.</p>
+  </div>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <div class="pt-icon">🏥</div>
+      <h3>Hospital Discharge Planners &amp; Case Managers</h3>
+      <p>We coordinate with discharge teams to ensure smooth, safe transitions from hospital to home — reducing readmission risk and giving your team confidence in every placement.</p>
+      <span class="badge">⚡ Same-day intake available</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">👨‍⚕️</div>
+      <h3>Physicians &amp; Specialists</h3>
+      <p>Primary care providers, geriatricians, neurologists, cardiologists, and oncologists trust us to extend quality care into the home — monitoring vitals and keeping you informed.</p>
+      <span class="badge">📋 Progress updates available</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">🏨</div>
+      <h3>Skilled Nursing Facilities &amp; Rehab Centers</h3>
+      <p>When patients are ready to return home after rehab, we step in to ensure continuity — supporting recovery, mobility, and daily functioning seamlessly.</p>
+      <span class="badge">🔄 Seamless care transitions</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">🕊</div>
+      <h3>Hospice &amp; Palliative Care Organizations</h3>
+      <p>Our caregivers are trained in end-of-life and palliative care. We work alongside hospice teams to provide hands-on comfort care for clients and families.</p>
+      <span class="badge">🕊 Specialized EOL training</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">🤝</div>
+      <h3>Social Workers &amp; Care Coordinators</h3>
+      <p>Whether placing a complex case or managing long-term needs, we're the reliable partner who follows through — every time, without exception.</p>
+      <span class="badge">✓ Complex case capable</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">🎖</div>
+      <h3>Veterans Service Organizations</h3>
+      <p>We proudly accept Veterans Aid &amp; Attendance benefits and welcome partnerships with VSOs, county veteran officers, and VA social workers.</p>
+      <span class="badge">🎖 VA A&amp;A benefits accepted</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">🏘</div>
+      <h3>Assisted &amp; Independent Living Communities</h3>
+      <p>We supplement care for residents who need additional one-on-one support beyond what the facility provides — personal care to companion services.</p>
+      <span class="badge">🏘 On-site supplemental care</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">⚖️</div>
+      <h3>Elder Law Attorneys &amp; Financial Advisors</h3>
+      <p>We work transparently with families on all payment options and can be the trusted home care partner you confidently recommend to clients in care planning.</p>
+      <span class="badge">💳 5+ payment options</span>
+    </div>
+    <div class="partner-card">
+      <div class="pt-icon">⛪</div>
+      <h3>Faith Communities &amp; Senior Centers</h3>
+      <p>Rooted in Christian faith, we partner with churches, senior centers, and Area Agencies on Aging who share our mission to serve the most vulnerable.</p>
+      <span class="badge">✝ Shared faith values</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="eyebrow-label center">Our Promise to Partners</div>
+    <h2 style="text-align:center;">Why Partners Choose Blessed At Home</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <p class="section-intro center">We know your professional reputation depends on who you refer to. Here is what we commit to every partner organization.</p>
+    <div class="promise-grid">
+      <div class="dark-card"><div class="num">01</div><h3>Rigorous Caregiver Vetting</h3><p>Every caregiver undergoes comprehensive background checks, reference verification, and skills training before their first placement. All are bonded and insured.</p></div>
+      <div class="dark-card"><div class="num">02</div><h3>Person-Centered Care Plans</h3><p>Every plan is built around the individual client's history, preferences, routines, and medical needs — never a template, always collaborative.</p></div>
+      <div class="dark-card"><div class="num">03</div><h3>Detailed, Transparent Reporting</h3><p>Caregivers keep detailed visit notes after every visit. Supervisory staff make periodic home visits to ensure quality is consistently met and exceeded.</p></div>
+      <div class="dark-card"><div class="num">04</div><h3>Rapid, Responsive Communication</h3><p>We respond to referrals quickly, 7 days a week. When a client's needs change, we adjust care plans promptly — no bureaucracy, no delays.</p></div>
+      <div class="dark-card"><div class="num">05</div><h3>Specialized Capabilities</h3><p>From Alzheimer's and dementia to neuromuscular conditions and end-of-life support — we handle the cases that require the most. One trusted agency for all needs.</p></div>
+      <div class="dark-card"><div class="num">06</div><h3>Mission-Driven, Faith-Grounded</h3><p>We are not just a business — we are a ministry of care. Our caregivers are motivated by a genuine calling to serve, and it shows in everything we do.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO GET STARTED -->
+<section class="section section-linen">
+  <div class="section-inner">
+    <div class="eyebrow-label center">How to Get Started</div>
+    <h2 style="color:var(--forest);text-align:center;">Making a Referral is Simple</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <div class="how-layout">
+      <div>
+        <div class="how-step">
+          <div class="step-num">1</div>
+          <div><h4>Contact Us</h4><p>Call 352-406-4939 or fill out the referral form. We're available 7 days a week and respond to all referrals promptly.</p></div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">2</div>
+          <div><h4>Share Client Details</h4><p>Provide basic information about the client's needs, situation, and urgency. We handle the rest with full confidentiality.</p></div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">3</div>
+          <div><h4>We Assess &amp; Plan</h4><p>Our team conducts an in-home assessment, builds a personalized care plan, and matches the client with the right caregiver.</p></div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">4</div>
+          <div><h4>Care Begins</h4><p>We keep you informed and adapt as needs evolve. Your client is in good hands — and so is your referral relationship.</p></div>
+        </div>
+        <a href="referral.html" class="btn btn-forest" style="margin-top:8px;">Submit a Referral →</a>
+      </div>
+      <div class="contact-panel">
+        <h3>✝ Ready to Build a Lasting Partnership?</h3>
+        <p>We welcome ongoing referral relationships with any healthcare professional or organization committed to quality care. Reach out to schedule a conversation with our team.</p>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div><strong>Phone</strong><span>352-406-4939</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div><strong>Office</strong><span>138 Bushnell Plaza, Suite 303<br/>Bushnell, FL 33513</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">🕐</div>
+          <div><strong>Availability</strong><span>Referrals accepted 7 days a week</span></div>
+        </div>
+        <div style="margin-top:24px;">
+          <a href="referral.html" class="btn btn-forest" style="width:100%;text-align:center;display:block;">Submit a Referral Online →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-forest">
+  <div class="section-inner">
+    <div class="eyebrow-label center">In Their Words</div>
+    <h2 style="text-align:center;">What Partners Say</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <div class="testimonial-grid">
+      <div class="t-card">
+        <div class="t-quote">"Blessed At Home has become our first call when placing a patient returning home. Their intake is fast, their caregivers are reliable, and they always follow through."</div>
+        <div class="t-attr">— Hospital Discharge Planner, Central Florida</div>
+      </div>
+      <div class="t-card">
+        <div class="t-quote">"The quality of care they provide to my patients with dementia has been exceptional. Families feel supported, and I feel confident in every referral."</div>
+        <div class="t-attr">— Primary Care Physician, Sumter County</div>
+      </div>
+      <div class="t-card">
+        <div class="t-quote">"Their faith-based approach aligns perfectly with our hospice team's values. Clients are treated with genuine dignity, and families feel that difference deeply."</div>
+        <div class="t-attr">— Hospice Care Coordinator, FL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="eyebrow-label">Let's Work Together</div>
+  <h2>Start Referring Today</h2>
+  <p>Submit a referral in minutes or call us to discuss a client's needs. We're ready.</p>
+  <div class="cta-actions">
+    <a href="referral.html" class="btn btn-gold">Submit a Referral ✦</a>
+    <a href="services.html" class="btn btn-outline-white">View All Services</a>
+  </div>
+  <p style="color:rgba(255,255,255,0.4);font-size:0.83rem;margin-top:24px;position:relative;">📞 <strong style="color:var(--gold-lt);">352-406-4939</strong> · 7 days a week</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="cross">✝</span> Blessed At Home</div>
+        <div class="footer-verse">"Whatever you did for one of the least of these… you did for me." — Matthew 25:40</div>
+        <p>A faith-inspired home health agency serving Bushnell and Central Florida.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="services.html">Our Services</a></li>
+        <li><a href="partners.html">Partner With Us</a></li><li><a href="payment.html">Payment Options</a></li>
+        <li><a href="referral.html" class="highlight">Make a Referral →</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Partner Types</h4><ul>
+        <li>Hospital Discharge Teams</li><li>Physicians &amp; Specialists</li>
+        <li>SNFs &amp; Rehab Centers</li><li>Hospice Organizations</li>
+        <li>Veterans Organizations</li><li>Faith Communities</li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li>📞 352-406-4939</li><li>📍 138 Bushnell Plaza, Ste 303</li><li>Bushnell, FL 33513</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blessed At Home · Home Health Agency · Bushnell, FL</span>
+      <span>Faith · Compassion · Dignity</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

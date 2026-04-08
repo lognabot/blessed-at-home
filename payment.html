@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Options | Blessed At Home</title>
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .pay-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.22s, transform 0.18s;
+    }
+    .pay-card:hover { box-shadow: 0 12px 36px rgba(44,74,62,0.1); transform: translateY(-3px); }
+    .pay-card-head {
+      background: var(--forest);
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .pay-icon-circle {
+      width: 46px;
+      height: 46px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .pay-card-head h3 { color: var(--white); font-size: 1.05rem; margin: 0; font-family: 'Nunito', sans-serif; font-weight: 600; }
+    .pay-card-head .pay-badge {
+      margin-left: auto;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .pay-card-body { padding: 24px; }
+    .pay-card-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+    .pay-tip {
+      background: var(--gold-bg);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: #5a4010;
+      line-height: 1.6;
+    }
+    .pay-tip strong { color: var(--gold); }
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-family: 'Nunito', sans-serif; color: var(--forest); font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.89rem; color: var(--muted); line-height: 1.78; }
+    @media(max-width:680px){
+      .payment-grid { grid-template-columns: 1fr; }
+      .pay-card-head { padding: 18px 20px; }
+      .pay-card-body { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="cross-mark">✝</span>
+      <div>Blessed At Home<span class="logo-tagline">Home Health Agency</span></div>
+    </a>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="partners.html">Partner With Us</a></li>
+      <li><a href="payment.html" class="active">Payment Options</a></li>
+      <li><a href="referral.html" class="nav-cta">Make a Referral</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('mobile-open');
+    this.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+</script>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">✝ Funding In-Home Care</div>
+    <h1>Removing the <em>Financial Barrier</em><br/>to Compassionate Care</h1>
+    <p class="lead">We believe financial constraints should never stand between a person and the care they need. We work with families and referral partners to explore every available funding pathway.</p>
+    <div class="hero-scripture">
+      "And my God will meet all your needs according to the riches of his glory."
+      <cite>Philippians 4:19</cite>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot">✝</span> 5+ Payment Pathways</div>
+  <div class="trust-item"><span class="trust-dot">💳</span> Private Pay Available</div>
+  <div class="trust-item"><span class="trust-dot">🎖</span> VA A&amp;A Benefits Accepted</div>
+  <div class="trust-item"><span class="trust-dot">📄</span> LTC Insurance Supported</div>
+  <div class="trust-item"><span class="trust-dot">🏠</span> Reverse Mortgage Options</div>
+</div>
+
+<!-- INTRO -->
+<section class="section section-cream">
+  <div class="section-inner" style="max-width:700px;margin:0 auto;text-align:center;">
+    <div class="eyebrow-label">Understanding Your Options</div>
+    <h2 style="color:var(--forest)">Care Shouldn't Be Out of Reach</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.85;">Many families are surprised to learn how many ways exist to fund in-home care — from personal savings to veterans benefits, long-term care insurance to home equity. Our team can help navigate these together, removing barriers so care can begin when it's needed most.</p>
+  </div>
+</section>
+
+<!-- PAYMENT OPTIONS -->
+<section class="section section-linen">
+  <div class="section-inner">
+    <div class="eyebrow-label center">Payment Methods</div>
+    <h2 style="color:var(--forest);text-align:center;">All the Ways We Can Help</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <div class="payment-grid">
+      <div class="pay-card">
+        <div class="pay-card-head">
+          <div class="pay-icon-circle">💳</div>
+          <h3>Private Pay</h3>
+          <span class="pay-badge">Most Common</span>
+        </div>
+        <div class="pay-card-body">
+          <p>Many clients and families choose to pay from personal savings, investments, or assets. The most straightforward and flexible option — no insurance approvals required.</p>
+          <p>Liquidating assets a senior no longer uses — a secondary vehicle, vacation property, or other possessions — can also be a practical funding source.</p>
+          <div class="pay-tip"><strong>Partner Tip:</strong> Private pay cases often have the fastest intake. Ideal for urgent placements that can't wait for benefit verification.</div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-head">
+          <div class="pay-icon-circle">📄</div>
+          <h3>Long-Term Care Insurance</h3>
+          <span class="pay-badge">Common</span>
+        </div>
+        <div class="pay-card-body">
+          <p>LTC insurance policies fund home care on a daily, weekly, or annual basis — often covering a significant portion or all of the cost. Policies vary widely in terms and benefit amounts.</p>
+          <p>We can help families verify and activate their coverage. Look for a history of premium payments to an insurance company as an indicator of an active policy.</p>
+          <div class="pay-tip"><strong>Partner Tip:</strong> Clients discharged from SNFs or hospital often have active LTC policies they've forgotten about — it's always worth asking.</div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-head">
+          <div class="pay-icon-circle">🎖</div>
+          <h3>Veterans Aid &amp; Attendance</h3>
+          <span class="pay-badge">VA Benefit</span>
+        </div>
+        <div class="pay-card-body">
+          <p>Veterans and surviving spouses who need regular assistance with daily living activities may qualify for the VA's Aid &amp; Attendance benefit, in addition to their monthly pension.</p>
+          <p>Available to honorably discharged veterans and surviving spouses who meet eligibility criteria. We work closely with VSO partners and VA-referred clients.</p>
+          <div class="pay-tip"><strong>Partner Tip:</strong> Many eligible veterans are unaware of this benefit. If a client is a veteran struggling to afford care, this is the first resource to explore.</div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-head">
+          <div class="pay-icon-circle">🏠</div>
+          <h3>Reverse Mortgage</h3>
+        </div>
+        <div class="pay-card-body">
+          <p>A reverse mortgage allows homeowners aged 62+ to convert a portion of their home equity into tax-free income — without selling the home, giving up the title, or making monthly payments.</p>
+          <p>The loan is repaid when the borrower permanently leaves the home. For seniors who are asset-rich but cash-poor, this can be a powerful long-term funding tool.</p>
+          <div class="pay-tip"><strong>Partner Tip:</strong> Best for clients who own their home with little or no remaining mortgage. Recommend speaking with an elder law attorney first.</div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-head">
+          <div class="pay-icon-circle">🏦</div>
+          <h3>Senior Living Loans</h3>
+        </div>
+        <div class="pay-card-body">
+          <p>Specialized loans secured specifically for long-term care services — for up to three years. These are unsecured loans guaranteed by family members, with interest rates similar to a credit card.</p>
+          <p>This option can bridge funding gaps while families wait for other benefits to be approved or assets to be liquidated.</p>
+          <div class="pay-tip"><strong>Partner Tip:</strong> A useful short-term bridge while waiting for LTC insurance approval or while a home is being sold.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-cream">
+  <div class="section-inner">
+    <div class="eyebrow-label center">Common Questions</div>
+    <h2 style="color:var(--forest);text-align:center;">Payment FAQs for Partners</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>What if my patient doesn't have clear funding?</h4>
+        <p>We can still help. Private pay is always available, and our team can work with families to explore reverse mortgage, senior loans, or VA benefits they may not be aware of. We prefer to talk through options rather than turn anyone away.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Does Blessed At Home accept Medicaid?</h4>
+        <p>We are currently a private-pay and LTC insurance agency. For Medicaid-funded home care, we recommend the Florida Statewide Medicaid Managed Care Long-Term Care program. We're happy to provide referrals to appropriate agencies.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How quickly can care begin once funding is confirmed?</h4>
+        <p>For private pay and LTC insurance clients, care can often begin within 24–48 hours of completing the initial assessment. VA benefit clients may require more processing time, but we can coordinate care in advance in urgent situations.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can you help families understand their LTC policy benefits?</h4>
+        <p>Yes. We're experienced in working with LTC insurance policies and can help families determine how to activate their benefits and what documentation is needed. Please include LTC policy information in the referral when possible.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is Veterans Aid &amp; Attendance available for surviving spouses?</h4>
+        <p>Yes — surviving spouses of honorably discharged veterans who meet eligibility criteria may qualify for A&amp;A benefits. This is often an overlooked resource, and our team is glad to help families explore it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="section section-forest center">
+  <div class="section-inner" style="max-width:680px;">
+    <div class="scripture-block" style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.12);border-top-color:var(--gold);">
+      <span class="qmark" style="color:var(--gold-lt);">"</span>
+      <blockquote style="color:var(--white);">"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."</blockquote>
+      <cite style="color:var(--gold-lt);">Luke 6:38</cite>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="eyebrow-label">Ready to Refer?</div>
+  <h2>Let's Find the Right Solution Together</h2>
+  <p>Submit a referral today. If payment questions arise, we'll work through options with your client and their family.</p>
+  <div class="cta-actions">
+    <a href="referral.html" class="btn btn-gold">Submit a Referral ✦</a>
+    <a href="partners.html" class="btn btn-outline-white">Partner With Us</a>
+  </div>
+  <p style="color:rgba(255,255,255,0.4);font-size:0.83rem;margin-top:24px;position:relative;">📞 <strong style="color:var(--gold-lt);">352-406-4939</strong> · 7 days a week</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="cross">✝</span> Blessed At Home</div>
+        <div class="footer-verse">"Whatever you did for one of the least of these… you did for me." — Matthew 25:40</div>
+        <p>A faith-inspired home health agency serving Bushnell and Central Florida.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="services.html">Our Services</a></li>
+        <li><a href="partners.html">Partner With Us</a></li><li><a href="payment.html">Payment Options</a></li>
+        <li><a href="referral.html" class="highlight">Make a Referral →</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Payment Options</h4><ul>
+        <li>Private Pay</li><li>Long-Term Care Insurance</li>
+        <li>Veterans A&amp;A Benefits</li><li>Reverse Mortgage</li><li>Senior Living Loans</li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li>📞 352-406-4939</li><li>📍 138 Bushnell Plaza, Ste 303</li><li>Bushnell, FL 33513</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blessed At Home · Home Health Agency · Bushnell, FL</span>
+      <span>Faith · Compassion · Dignity</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

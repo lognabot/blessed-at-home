@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessed At Home | Partner With Us</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', serif;
+      color: #2D2D2D;
+      background: #fff;
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Colors ── */
+    :root {
+      --navy:   #1B3A6B;
+      --gold:   #C09A3E;
+      --cream:  #F8F4EE;
+      --light:  #EEF3FA;
+      --text:   #2D2D2D;
+      --muted:  #5A6070;
+      --white:  #ffffff;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.88rem;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: bold !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #a8842e !important; color: var(--white) !important; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #102649 0%, #1B3A6B 55%, #23508a 100%);
+      color: var(--white);
+      padding: 90px 5% 80px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      min-height: 520px;
+    }
+    .hero-text { flex: 1; max-width: 640px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(192,154,62,0.25);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero p {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 34px;
+      max-width: 520px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 5px;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #a8842e; transform: translateY(-1px); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.6);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 5px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      padding: 32px;
+      min-width: 260px;
+      flex-shrink: 0;
+    }
+    .hero-card h3 {
+      color: var(--gold);
+      font-size: 1rem;
+      font-family: 'Arial', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+    .hero-stat {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .hero-stat .big { font-size: 2rem; font-weight: bold; color: var(--white); }
+    .hero-stat .label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* ── Section Base ── */
+    section { padding: 72px 5%; }
+    .section-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--navy);
+      font-weight: normal;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 660px;
+      margin-bottom: 48px;
+    }
+
+    /* ── Trust Bar ── */
+    .trust-bar {
+      background: var(--cream);
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      border-top: 3px solid var(--gold);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      color: var(--navy);
+      font-weight: bold;
+    }
+    .trust-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    /* ── Partner Types ── */
+    .partners-section { background: var(--white); }
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+    .partner-card {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 28px 24px;
+      border-left: 4px solid var(--navy);
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .partner-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(27,58,107,0.1);
+    }
+    .partner-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .partner-card h3 {
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .partner-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* ── Services ── */
+    .services-section { background: var(--light); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .service-tile {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 22px 20px;
+      border-top: 3px solid var(--navy);
+      transition: border-color 0.2s;
+    }
+    .service-tile:hover { border-color: var(--gold); }
+    .service-tile .svc-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .service-tile h3 { font-size: 0.95rem; color: var(--navy); margin-bottom: 6px; }
+    .service-tile p { font-size: 0.82rem; color: var(--muted); font-family: 'Arial', sans-serif; line-height: 1.55; }
+
+    /* ── Why Partner ── */
+    .why-section {
+      background: linear-gradient(135deg, #102649, #1B3A6B);
+      color: var(--white);
+    }
+    .why-section .section-label { color: var(--gold); }
+    .why-section h2 { color: var(--white); }
+    .why-section .section-intro { color: rgba(255,255,255,0.75); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 28px;
+    }
+    .why-num {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 10px;
+      font-family: 'Arial', sans-serif;
+    }
+    .why-card h3 { font-size: 1.05rem; color: var(--white); margin-bottom: 10px; }
+    .why-card p { font-size: 0.88rem; color: rgba(255,255,255,0.75); font-family: 'Arial', sans-serif; line-height: 1.65; }
+
+    /* ── Referral Process ── */
+    .process-section { background: var(--white); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+    .process-step {
+      text-align: center;
+      padding: 32px 24px;
+      position: relative;
+    }
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -8px;
+      top: 40px;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+    .process-step:last-child::after { display: none; }
+    .step-circle {
+      width: 60px;
+      height: 60px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 1.4rem;
+    }
+    .process-step h3 { font-size: 1rem; color: var(--navy); margin-bottom: 8px; }
+    .process-step p { font-size: 0.85rem; color: var(--muted); font-family: 'Arial', sans-serif; line-height: 1.6; }
+
+    /* ── Payment Options ── */
+    .payment-section { background: var(--cream); }
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .payment-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .pay-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .payment-card h3 { font-size: 0.95rem; color: var(--navy); margin-bottom: 4px; }
+    .payment-card p { font-size: 0.82rem; color: var(--muted); font-family: 'Arial', sans-serif; line-height: 1.55; }
+
+    /* ── Quote / Mission ── */
+    .quote-section {
+      background: var(--gold);
+      color: var(--white);
+      text-align: center;
+      padding: 56px 5%;
+    }
+    .quote-section blockquote {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      line-height: 1.5;
+      max-width: 800px;
+      margin: 0 auto 16px;
+      font-style: italic;
+    }
+    .quote-section cite {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      opacity: 0.85;
+      font-style: normal;
+    }
+
+    /* ── Contact / Referral Form ── */
+    .contact-section {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      padding: 80px 5%;
+    }
+    .contact-info h2 { color: var(--navy); margin-bottom: 18px; }
+    .contact-info p { color: var(--muted); font-size: 0.97rem; margin-bottom: 28px; font-family: 'Arial', sans-serif; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-family: 'Arial', sans-serif;
+    }
+    .contact-detail .icon {
+      width: 42px;
+      height: 42px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+    .contact-detail strong { display: block; font-size: 0.82rem; color: var(--muted); font-weight: normal; }
+    .contact-detail span { font-size: 0.97rem; color: var(--navy); font-weight: bold; }
+    .referral-form {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .referral-form h3 {
+      color: var(--navy);
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+    .referral-form .form-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #D5D9E0;
+      border-radius: 5px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      border-radius: 5px;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: #102649; transform: translateY(-1px); }
+    .form-note {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #0D1F3C;
+      color: rgba(255,255,255,0.7);
+      padding: 48px 5% 28px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 36px;
+    }
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .footer-brand h3 span { color: var(--gold); }
+    .footer-brand p {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.65;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.85rem;
+      font-family: 'Arial', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li {
+      margin-bottom: 8px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      .hero { flex-direction: column; gap: 36px; padding: 60px 4% 56px; }
+      .hero-card { min-width: auto; width: 100%; }
+      .contact-section { grid-template-columns: 1fr; gap: 36px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .process-step::after { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav>
+  <div class="nav-logo">Blessed <span>At Home</span></div>
+  <ul class="nav-links">
+    <li><a href="#partners">Who We Serve</a></li>
+    <li><a href="#services">Our Services</a></li>
+    <li><a href="#why">Why Partner</a></li>
+    <li><a href="#process">Referral Process</a></li>
+    <li><a href="#payment">Payment</a></li>
+    <li><a href="#contact" class="nav-cta">Make a Referral</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">✦ Trusted Home Health Partners · Bushnell, FL</div>
+    <h1>A Partner You Can Trust<br/>To Care Like <em>Family</em></h1>
+    <p>Blessed At Home is a home health agency built on compassion, dignity, and a commitment to extraordinary care. We partner with healthcare professionals and organizations to provide seamless, person-centered in-home support for your clients and patients.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Submit a Referral</a>
+      <a href="#services" class="btn-outline">Explore Our Services</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3>At a Glance</h3>
+    <div class="hero-stat">
+      <div class="big">10+</div>
+      <div class="label">Service categories across personal care, specialty & companion care</div>
+    </div>
+    <div class="hero-stat">
+      <div class="big">24/7</div>
+      <div class="label">Around-the-clock care available for complex needs</div>
+    </div>
+    <div class="hero-stat">
+      <div class="big">5+</div>
+      <div class="label">Payment pathways accepted including VA benefits & LTC insurance</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">✓</div>
+    Screened & Background-Checked Caregivers
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🛡</div>
+    Bonded &amp; Insured
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">📋</div>
+    Personalized Care Plans
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">📞</div>
+    Fast Response to Referrals
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">❤</div>
+    Faith-Inspired, Mission-Driven
+  </div>
+</div>
+
+<!-- ══ WHO WE PARTNER WITH ══ -->
+<section id="partners" class="partners-section">
+  <div class="section-label">B2B Partnerships</div>
+  <h2>Who We Work With</h2>
+  <p class="section-intro">We build lasting relationships with the organizations and professionals who care most about their clients' quality of life. If you're placing someone in need of dependable in-home care, we're ready to be your trusted partner.</p>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <div class="partner-icon">🏥</div>
+      <h3>Hospital Discharge Planners & Case Managers</h3>
+      <p>We coordinate closely with discharge teams to ensure smooth, safe transitions from hospital to home — reducing readmissions and giving patients the support they need.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">👨‍⚕️</div>
+      <h3>Physicians & Specialists</h3>
+      <p>Primary care providers, geriatricians, neurologists, cardiologists, and oncologists rely on us to extend quality care into the home between appointments.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">🏨</div>
+      <h3>Skilled Nursing Facilities & Rehab Centers</h3>
+      <p>We work alongside SNFs and rehabilitation centers to provide continued care as patients transition back into their homes and communities.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">🕊</div>
+      <h3>Hospice & Palliative Care Teams</h3>
+      <p>Our caregivers are specially trained in end-of-life support and palliative care, making us a natural partner for hospice organizations and comfort care teams.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">🤝</div>
+      <h3>Social Workers & Care Coordinators</h3>
+      <p>Whether hospital-based or community-focused, social workers trust us to follow through on care arrangements with professionalism and compassion.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">🎖</div>
+      <h3>Veterans Service Organizations</h3>
+      <p>We proudly accept VA Aid & Attendance benefits and welcome partnerships with VSOs and VA social workers who serve our nation's veterans and surviving spouses.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">🏘</div>
+      <h3>Assisted Living Communities</h3>
+      <p>We supplement care for residents in independent and assisted living communities who need additional one-on-one support beyond what the facility provides.</p>
+    </div>
+    <div class="partner-card">
+      <div class="partner-icon">⛪</div>
+      <h3>Faith Communities & Senior Centers</h3>
+      <p>Rooted in faith and community, we partner with local churches, senior centers, and Area Agencies on Aging to reach those who need care most.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section id="services" class="services-section">
+  <div class="section-label">What We Offer</div>
+  <h2>A Full Spectrum of In-Home Care</h2>
+  <p class="section-intro">Blessed At Home provides non-medical in-home care for seniors and adults with disabilities. Every care plan is uniquely crafted for the individual — no two plans are alike.</p>
+  <div class="services-grid">
+    <div class="service-tile">
+      <div class="svc-icon">🧍</div>
+      <h3>Personal Care</h3>
+      <p>Bathing, grooming, dressing, oral care, and hygiene assistance delivered with dignity and respect.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">♿</div>
+      <h3>Mobility Assistance</h3>
+      <p>Walking assistance, wheelchair support, transferring, and paraplegia/quadriplegia care for safety and independence.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🍽</div>
+      <h3>Feeding & Nutrition</h3>
+      <p>Meal planning, preparation for special diets, and hands-on feeding assistance as needed.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🧹</div>
+      <h3>Homemaking</h3>
+      <p>Light housekeeping, laundry, grocery shopping, and meal preparation to keep the home comfortable and safe.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">💬</div>
+      <h3>Companion Care</h3>
+      <p>Meaningful social interaction, engagement with hobbies, cognitive stimulation, and accompaniment on outings.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🚗</div>
+      <h3>Senior Transportation</h3>
+      <p>Escorted transportation to medical appointments, grocery runs, leisure activities, and errands.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">💊</div>
+      <h3>Health Reminders</h3>
+      <p>Medication reminders, vital sign monitoring (BP, blood sugar, heart rate), and appointment management.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🧠</div>
+      <h3>Alzheimer's & Dementia Care</h3>
+      <p>Specialized, patient-centered support for those with memory and cognitive changes, focused on normalcy and dignity.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🌿</div>
+      <h3>Palliative & End-of-Life Care</h3>
+      <p>Comfort-focused care for those with serious chronic or life-threatening illness, with support for both client and family.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🌙</div>
+      <h3>24-Hour Care</h3>
+      <p>Around-the-clock in-home care for clients requiring continuous supervision and support.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">🌱</div>
+      <h3>Adults With Disabilities</h3>
+      <p>Care for adults with intellectual, developmental, and neuromuscular conditions — enabling safe, independent living.</p>
+    </div>
+    <div class="service-tile">
+      <div class="svc-icon">💪</div>
+      <h3>Wellness Support</h3>
+      <p>Exercise encouragement, cognitive stimulation, meal planning, and safety supervision to promote overall wellbeing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY PARTNER ══ -->
+<section id="why" class="why-section">
+  <div class="section-label">Why Choose Us</div>
+  <h2>Why Partners Choose Blessed At Home</h2>
+  <p class="section-intro">We know that when you refer a client to us, your reputation is on the line too. Here's our promise to every partner.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3>Rigorous Caregiver Screening</h3>
+      <p>Every caregiver undergoes comprehensive background checks, reference verification, and training before they ever enter a client's home. All caregivers are bonded and insured.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3>Person-Centered Care Plans</h3>
+      <p>We never use a one-size-fits-all approach. Every client receives a care plan built around their personal history, preferences, routines, and medical needs — developed with their active input.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3>Responsive Communication</h3>
+      <p>We provide detailed caregiver notes after every visit and make supervisory visits to ensure quality. Your referred clients are never left without oversight or support.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <h3>Specialized Capabilities</h3>
+      <p>From Alzheimer's and dementia care to end-of-life support and complex disability care, we handle cases that require more than basic assistance — so you have one trusted partner for all needs.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">05</div>
+      <h3>Multiple Payment Options</h3>
+      <p>Private pay, long-term care insurance, VA Aid & Attendance, senior living loans, and reverse mortgage — we work with families to find coverage and remove financial barriers to care.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">06</div>
+      <h3>Rooted in Faith & Community</h3>
+      <p>Our mission is simple: to improve the quality of life for those we serve. We believe aging should be about living well, not just staying safe. That heart shows in everything we do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REFERRAL PROCESS ══ -->
+<section id="process" class="process-section">
+  <div class="section-label">How It Works</div>
+  <h2>A Simple Referral Process</h2>
+  <p class="section-intro">We make it easy for your team to refer clients. From first contact to first visit, we handle the details — so you can focus on what you do best.</p>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-circle">📞</div>
+      <h3>Step 1 — Contact Us</h3>
+      <p>Call us at 352-406-4939 or submit the referral form below. We're available to discuss the client's needs right away.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">📋</div>
+      <h3>Step 2 — Needs Assessment</h3>
+      <p>We gather information and arrange an in-home visit to complete a thorough care and environment assessment.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">💛</div>
+      <h3>Step 3 — Caregiver Match</h3>
+      <p>We identify the best-fit caregiver based on the client's needs, preferences, and personality for the most compatible match.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">✅</div>
+      <h3>Step 4 — Care Begins</h3>
+      <p>Care starts promptly. We keep you informed with ongoing communication and adapt the care plan as needs change.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAYMENT OPTIONS ══ -->
+<section id="payment" class="payment-section">
+  <div class="section-label">Funding Options</div>
+  <h2>We Work With Multiple Payment Sources</h2>
+  <p class="section-intro">Navigating payment for home care can be stressful for families. We're well-versed in all available options and can help families understand what they qualify for.</p>
+  <div class="payment-grid">
+    <div class="payment-card">
+      <div class="pay-icon">💳</div>
+      <div>
+        <h3>Private Pay</h3>
+        <p>Clients and families paying from personal assets, savings, or investments — the most flexible and immediate option.</p>
+      </div>
+    </div>
+    <div class="payment-card">
+      <div class="pay-icon">📄</div>
+      <div>
+        <h3>Long-Term Care Insurance</h3>
+        <p>LTC insurance policies fund daily, weekly, or annual care costs. We help families verify and activate their coverage.</p>
+      </div>
+    </div>
+    <div class="payment-card">
+      <div class="pay-icon">🎖</div>
+      <div>
+        <h3>Veterans Aid & Attendance</h3>
+        <p>Eligible veterans and surviving spouses can access A&A benefits through the VA in addition to their monthly pension.</p>
+      </div>
+    </div>
+    <div class="payment-card">
+      <div class="pay-icon">🏦</div>
+      <div>
+        <h3>Senior Living Loans</h3>
+        <p>Unsecured loans guaranteed by family members, designed specifically to fund up to three years of long-term care.</p>
+      </div>
+    </div>
+    <div class="payment-card">
+      <div class="pay-icon">🏠</div>
+      <div>
+        <h3>Reverse Mortgage</h3>
+        <p>Homeowners age 62+ can convert home equity into tax-free income to fund care without selling their home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISSION QUOTE ══ -->
+<section class="quote-section">
+  <blockquote>"We believe aging isn't just about staying healthy, safe and independent — it's about living well."</blockquote>
+  <cite>— The Blessed At Home Mission</cite>
+</section>
+
+<!-- ══ CONTACT / REFERRAL FORM ══ -->
+<section id="contact" class="contact-section">
+  <div class="contact-info">
+    <div class="section-label">Get In Touch</div>
+    <h2>Ready to Partner With Us?</h2>
+    <p>Whether you have a client ready for referral or simply want to learn more about what we offer, our team is here to help. We respond to all inquiries promptly.</p>
+    <div class="contact-detail">
+      <div class="icon">📞</div>
+      <div>
+        <strong>Phone</strong>
+        <span>352-406-4939</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon">📍</div>
+      <div>
+        <strong>Office Address</strong>
+        <span>138 Bushnell Plaza, Suite 303<br/>Bushnell, FL 33513</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon">🕐</div>
+      <div>
+        <strong>Availability</strong>
+        <span>Referrals accepted 7 days a week</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon">🌍</div>
+      <div>
+        <strong>Service Area</strong>
+        <span>Sumter County and surrounding Central Florida communities</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="referral-form">
+    <h3>Submit a Referral or Inquiry</h3>
+    <p class="form-sub">Fill out the form below and a member of our team will be in touch within one business day.</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Jane Smith" />
+      </div>
+      <div class="form-group">
+        <label>Organization</label>
+        <input type="text" placeholder="Org / Facility Name" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(352) 000-0000" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@organization.com" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Your Role / Title</label>
+      <select>
+        <option value="">Select your role...</option>
+        <option>Hospital Discharge Planner</option>
+        <option>Physician / Medical Provider</option>
+        <option>Social Worker</option>
+        <option>SNF / Rehab Case Manager</option>
+        <option>Hospice / Palliative Care Coordinator</option>
+        <option>Veterans Service Officer</option>
+        <option>Assisted Living Staff</option>
+        <option>Elder Law Attorney</option>
+        <option>Financial Advisor</option>
+        <option>Community / Faith Organization</option>
+        <option>Family Member</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Services Needed (optional)</label>
+      <select>
+        <option value="">Select primary service...</option>
+        <option>Personal Care & Hygiene</option>
+        <option>Companion Care</option>
+        <option>Alzheimer's / Dementia Care</option>
+        <option>End-of-Life / Hospice Support</option>
+        <option>Palliative Care</option>
+        <option>24-Hour Care</option>
+        <option>Adults with Disabilities</option>
+        <option>Senior Transportation</option>
+        <option>General In-Home Care</option>
+        <option>Not Sure — Need Assessment</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message / Notes</label>
+      <textarea placeholder="Tell us about the client's situation, urgency, or any questions you have..."></textarea>
+    </div>
+    <button class="form-submit" type="button">Submit Referral ✦</button>
+    <p class="form-note">🔒 All information is kept confidential. We'll reach out within one business day.</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>Blessed <span>At Home</span></h3>
+      <p>A home health agency built on compassion, faith, and an unwavering commitment to improving the quality of life for every person we serve. We are honored to be your trusted care partner.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Personal Care</li>
+        <li>Companion Care</li>
+        <li>Alzheimer's & Dementia</li>
+        <li>End-of-Life Support</li>
+        <li>Palliative Care</li>
+        <li>24-Hour Care</li>
+        <li>Adults With Disabilities</li>
+        <li>Senior Transportation</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>📞 352-406-4939</li>
+        <li>📍 138 Bushnell Plaza</li>
+        <li>Suite 303</li>
+        <li>Bushnell, FL 33513</li>
+        <li style="margin-top:12px"><a href="#contact" style="color:var(--gold)">→ Make a Referral</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Blessed At Home · Home Health Agency · Bushnell, FL</span>
+    <span style="color:rgba(255,255,255,0.4)">Serving Our Community With Heart</span>
+  </div>
+</footer>
+
+</body>
+</html>

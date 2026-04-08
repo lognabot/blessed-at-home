@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Blessed At Home</title>
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    .svc-group { max-width: 1180px; margin: 0 auto 64px; }
+    .svc-group:last-child { margin-bottom: 0; }
+    .group-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--forest);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 22px;
+    }
+    .svc-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .svc-detail-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 26px 22px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.22s, transform 0.18s;
+    }
+    .svc-detail-card:hover {
+      box-shadow: 0 10px 30px rgba(44,74,62,0.1);
+      transform: translateY(-2px);
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .svc-icon-box {
+      width: 50px;
+      height: 50px;
+      background: var(--linen);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .svc-detail-card h3 { font-family: 'Nunito', sans-serif; color: var(--forest); font-size: 1rem; font-weight: 600; }
+    .svc-detail-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.72; margin-bottom: 14px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      background: var(--linen);
+      color: var(--forest);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+    @media (max-width: 680px) {
+      .svc-detail-grid { grid-template-columns: 1fr; }
+      .card-top { gap: 10px; }
+      .svc-icon-box { width: 42px; height: 42px; font-size: 1.2rem; }
+      .svc-group { margin-bottom: 44px; }
+    }
+    .specialty-highlight {
+      background: var(--forest);
+      border-radius: 14px;
+      padding: 36px;
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 36px;
+      max-width: 1180px;
+      margin: 0 auto 40px;
+    }
+    .specialty-highlight h3 { color: var(--gold-lt); font-size: 1.3rem; margin-bottom: 8px; }
+    .specialty-highlight p { color: rgba(255,255,255,0.75); font-size: 0.92rem; line-height: 1.75; }
+    @media(max-width:700px){ .specialty-highlight { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="cross-mark">✝</span>
+      <div>Blessed At Home<span class="logo-tagline">Home Health Agency</span></div>
+    </a>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Our Services</a></li>
+      <li><a href="partners.html">Partner With Us</a></li>
+      <li><a href="payment.html">Payment Options</a></li>
+      <li><a href="referral.html" class="nav-cta">Make a Referral</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('mobile-open');
+    this.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+</script>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">✝ What We Offer</div>
+    <h1>Care That <em>Honors</em> Every Person</h1>
+    <p class="lead">A full spectrum of in-home care services for seniors and adults with disabilities. Every plan is uniquely crafted — no two clients are alike, and no two plans should be either.</p>
+    <div class="hero-scripture">
+      "She opens her hand to the poor and reaches out her hands to the needy."
+      <cite>Proverbs 31:20</cite>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot">✝</span> Person-Centered Plans</div>
+  <div class="trust-item"><span class="trust-dot">✓</span> In-Home &amp; Community Settings</div>
+  <div class="trust-item"><span class="trust-dot">🛡</span> Screened &amp; Insured Caregivers</div>
+  <div class="trust-item"><span class="trust-dot">📋</span> Ongoing Supervisory Visits</div>
+  <div class="trust-item"><span class="trust-dot">🌙</span> 24-Hour Care Available</div>
+</div>
+
+<!-- CORE SERVICES -->
+<section class="section section-cream">
+  <div class="svc-group">
+    <div class="group-header">🧍 Personal Care</div>
+    <div class="svc-detail-grid">
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🛁</div><h3>Bathing &amp; Hygiene</h3></div>
+        <p>Bed baths, shower and tub assistance, and stand-by supervision — always delivered with dignity and complete discretion.</p>
+        <div class="tag-row"><span class="tag">Bed Baths</span><span class="tag">Shower Assist</span><span class="tag">Stand-By</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🪮</div><h3>Grooming &amp; Personal Hygiene</h3></div>
+        <p>Daily routines — grooming, dressing, oral care, and incontinence assistance — managed with respect for personal preferences.</p>
+        <div class="tag-row"><span class="tag">Grooming</span><span class="tag">Dressing</span><span class="tag">Oral Care</span><span class="tag">Incontinence</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">♿</div><h3>Mobility Assistance</h3></div>
+        <p>Safe, confident movement is a matter of freedom. We support walking, wheelchair use, transfers, and paraplegia/quadriplegia care.</p>
+        <div class="tag-row"><span class="tag">Walking</span><span class="tag">Wheelchair</span><span class="tag">Transfers</span><span class="tag">Para/Quad Care</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🍽</div><h3>Feeding &amp; Nutrition</h3></div>
+        <p>Meal planning, preparation of special diets, and hands-on feeding assistance for clients who need additional mealtime support.</p>
+        <div class="tag-row"><span class="tag">Meal Planning</span><span class="tag">Special Diets</span><span class="tag">Feeding Assist</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-group">
+    <div class="group-header">🏠 Companion Care &amp; Homemaking</div>
+    <div class="svc-detail-grid">
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">💬</div><h3>Companion Care</h3></div>
+        <p>Social connection is medicine. Meaningful companionship — reading aloud, games, hobbies, and outings — to foster wellbeing.</p>
+        <div class="tag-row"><span class="tag">Conversation</span><span class="tag">Hobbies</span><span class="tag">Games</span><span class="tag">Outings</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🧹</div><h3>Light Housekeeping</h3></div>
+        <p>Laundry, light cleaning, organization, and trash — keeping the home orderly so clients can focus on comfort and living well.</p>
+        <div class="tag-row"><span class="tag">Laundry</span><span class="tag">Cleaning</span><span class="tag">Organization</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🥘</div><h3>Meal Preparation</h3></div>
+        <p>Nutritious, home-cooked meals planned around dietary needs and preferences, plus grocery shopping so everything's on hand.</p>
+        <div class="tag-row"><span class="tag">Cooking</span><span class="tag">Grocery Shopping</span><span class="tag">Dietary Needs</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🚗</div><h3>Senior Transportation</h3></div>
+        <p>Escorted transportation to medical appointments, grocery stores, leisure activities, and errands — keeping clients connected.</p>
+        <div class="tag-row"><span class="tag">Appointments</span><span class="tag">Errands</span><span class="tag">Leisure</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-group">
+    <div class="group-header">💊 Health &amp; Wellness Support</div>
+    <div class="svc-detail-grid">
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">💊</div><h3>Health Reminders</h3></div>
+        <p>Medication reminders, vital sign monitoring (blood pressure, blood sugar, heart rate), and management of medical appointments.</p>
+        <div class="tag-row"><span class="tag">Medication</span><span class="tag">Vital Signs</span><span class="tag">Appointments</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">💪</div><h3>Wellness Support</h3></div>
+        <p>Safety supervision, light exercise encouragement, cognitive stimulation, and socialization — delaying the effects of aging holistically.</p>
+        <div class="tag-row"><span class="tag">Exercise</span><span class="tag">Cognitive Stimulation</span><span class="tag">Safety</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTY CARE -->
+<section class="section section-linen">
+  <div class="section-inner">
+    <div class="eyebrow-label">Specialty Care</div>
+    <h2 style="color:var(--forest)">Complex Care,<br/>Delivered with Grace</h2>
+    <div class="faith-rule"><span>✝</span></div>
+    <p class="section-intro">Our caregivers are trained for life's most demanding situations — chronic conditions, cognitive changes, and end-of-life support. You can trust us with the cases that require the most.</p>
+    <div class="specialty-highlight">
+      <div>
+        <h3>✝ Trained for Complex Cases</h3>
+        <p>Blessed At Home caregivers handle Alzheimer's, Parkinson's, diabetes, neuromuscular conditions, and end-of-life care. We care for clients — and walk alongside their families every step of the way.</p>
+      </div>
+      <a href="referral.html" class="btn btn-gold" style="white-space:nowrap;">Refer a Complex Case →</a>
+    </div>
+    <div class="svc-detail-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🧠</div><h3>Alzheimer's, Cognitive &amp; Dementia Care</h3></div>
+        <p>Preserving moments, normalcy, and connection. We help families reclaim precious time with loved ones — focusing on good days rather than difficult ones.</p>
+        <div class="tag-row"><span class="tag">Dementia Care</span><span class="tag">Cognitive Support</span><span class="tag">Family Support</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🕊</div><h3>End-of-Life Support</h3></div>
+        <p>Many choose to spend final days at home. Our caregivers provide comfort-focused support — for the client and the family — with hygiene, grooming, and compassionate presence.</p>
+        <div class="tag-row"><span class="tag">Comfort Care</span><span class="tag">Hygiene</span><span class="tag">Family Support</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🌿</div><h3>Palliative Care</h3></div>
+        <p>For those living with serious illness — congestive heart failure, cancer, dementia — our person-centered palliative support improves quality of life at home.</p>
+        <div class="tag-row"><span class="tag">CHF</span><span class="tag">Cancer Care</span><span class="tag">Chronic Illness</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🌙</div><h3>24-Hour Care</h3></div>
+        <p>Continuous, compassionate around-the-clock coverage when a senior family member needs constant supervision to remain safely at home.</p>
+        <div class="tag-row"><span class="tag">Overnight Care</span><span class="tag">Continuous Supervision</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🌱</div><h3>Adults with Intellectual &amp; Developmental Disabilities</h3></div>
+        <p>Encouraging independence while ensuring safety — companionship, homemaking, transportation, and cognitive stimulation for adults with IDD.</p>
+        <div class="tag-row"><span class="tag">Companionship</span><span class="tag">Transportation</span><span class="tag">Cognitive Support</span></div>
+      </div>
+      <div class="svc-detail-card">
+        <div class="card-top"><div class="svc-icon-box">🦾</div><h3>Neuromuscular Disease Care</h3></div>
+        <p>Ambulatory assistance, dressing, grooming, medication reminders, and cognitive support for those with complex motor and cognitive conditions.</p>
+        <div class="tag-row"><span class="tag">Ambulatory Assist</span><span class="tag">Medication</span><span class="tag">Grooming</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="eyebrow-label">Ready to Refer?</div>
+  <h2>Find the Right Care for Your Client</h2>
+  <p>Not sure which services fit? Our care team will build the right plan from day one.</p>
+  <div class="cta-actions">
+    <a href="referral.html" class="btn btn-gold">Submit a Referral ✦</a>
+    <a href="partners.html" class="btn btn-outline-white">About Partnerships</a>
+  </div>
+  <p style="color:rgba(255,255,255,0.4);font-size:0.83rem;margin-top:24px;position:relative;">📞 <strong style="color:var(--gold-lt);">352-406-4939</strong> · 7 days a week</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="cross">✝</span> Blessed At Home</div>
+        <div class="footer-verse">"Whatever you did for one of the least of these… you did for me." — Matthew 25:40</div>
+        <p>A faith-inspired home health agency serving Bushnell and Central Florida with compassionate in-home care.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="partners.html">Partner With Us</a></li>
+        <li><a href="payment.html">Payment Options</a></li>
+        <li><a href="referral.html" class="highlight">Make a Referral →</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Care Areas</h4><ul>
+        <li>Personal Care</li><li>Companion Care</li><li>Alzheimer's &amp; Dementia</li>
+        <li>End-of-Life Support</li><li>Palliative Care</li><li>24-Hour Care</li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li>📞 352-406-4939</li><li>📍 138 Bushnell Plaza, Ste 303</li><li>Bushnell, FL 33513</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blessed At Home · Home Health Agency · Bushnell, FL</span>
+      <span>Faith · Compassion · Dignity</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessed At Home | Home Health Agency · Bushnell, FL</title>
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    /* ─── HOME HERO ─── */
+    .home-hero {
+      background: var(--cream);
+      padding: 0 5%;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(196,147,40,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .home-hero::after {
+      content: '✝';
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22rem;
+      color: var(--sand);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .home-hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--linen);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.71rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero-eyebrow .dot { color: var(--gold); font-size: 1rem; }
+    .home-hero h1 {
+      color: var(--forest);
+      margin-bottom: 20px;
+    }
+    .home-hero h1 em { font-style: italic; color: var(--gold); }
+    .home-hero .lead {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-panel {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      box-shadow: 0 6px 32px rgba(30,26,20,0.07);
+    }
+    .panel-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--sand);
+    }
+    .panel-head .cross { color: var(--gold); font-size: 1.3rem; }
+    .panel-head span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--forest);
+    }
+    .stat-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--sand);
+    }
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .stat-big {
+      font-family: 'Nunito', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 3px;
+      letter-spacing: -0.02em;
+    }
+    .stat-big span { color: var(--gold); font-weight: 400; }
+    .stat-label { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    /* ─── ABOUT SECTION ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .about-verse {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 36px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(30,26,20,0.05);
+    }
+    .about-verse .cross-big {
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0.5;
+      margin-bottom: 16px;
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .about-verse blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--forest);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .about-verse cite {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .values-row {
+      display: flex;
+      gap: 24px;
+      margin: 28px 0;
+    }
+    .value-item { text-align: center; flex: 1; }
+    .value-item .vi { font-size: 1.5rem; margin-bottom: 6px; }
+    .value-item .vl {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--forest);
+    }
+
+    /* ─── SERVICE GRID ─── */
+    .svc-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    /* ─── PARTNER STRIP ─── */
+    .partner-chips {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 16px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .partner-chip {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.18s, border-color 0.2s;
+    }
+    .partner-chip:hover {
+      box-shadow: 0 6px 20px rgba(44,74,62,0.1);
+      transform: translateY(-2px);
+      border-color: var(--forest);
+    }
+    .partner-chip .p-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .partner-chip .p-name { font-size: 0.85rem; color: var(--forest); font-weight: 600; line-height: 1.35; }
+    .partner-chip .p-sub { font-size: 0.75rem; color: var(--muted); }
+
+    /* ─── PAYMENT PILLS ─── */
+    .pay-pills {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .pay-pill {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 22px 20px;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      transition: box-shadow 0.2s, transform 0.18s;
+    }
+    .pay-pill:hover { box-shadow: 0 6px 20px rgba(30,26,20,0.08); transform: translateY(-2px); }
+    .pay-pill .pi { font-size: 1.3rem; margin-bottom: 10px; }
+    .pay-pill h3 { font-family: 'Nunito', sans-serif; font-size: 0.87rem; font-weight: 600; color: var(--forest); margin-bottom: 4px; }
+    .pay-pill p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+    @media (max-width: 900px) {
+      .home-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .home-hero::after { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-panel { max-width: 100%; }
+    }
+    @media (max-width: 680px) {
+      .home-hero { padding: 0 4%; }
+      .home-hero-inner { padding: 48px 0 40px; gap: 28px; }
+      .hero-panel { padding: 22px 18px; }
+      .stat-big { font-size: 1.8rem; }
+      .values-row { gap: 14px; }
+      .value-item .vi { font-size: 1.2rem; }
+      .svc-mini-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .svc-tile { padding: 18px 14px; }
+      .svc-tile .icon { font-size: 1.2rem; margin-bottom: 7px; }
+      .partner-chips { grid-template-columns: 1fr; gap: 10px; }
+      .pay-pills { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="cross-mark">✝</span>
+      <div>
+        Blessed At Home
+        <span class="logo-tagline">Home Health Agency · Bushnell, FL</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="partners.html">Partner With Us</a></li>
+      <li><a href="payment.html">Payment Options</a></li>
+      <li><a href="referral.html" class="nav-cta">Make a Referral</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('mobile-open');
+    this.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+</script>
+
+<!-- HERO -->
+<section class="home-hero">
+  <div class="home-hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot">✦</span> Serving Central Florida with Faith &amp; Compassion</div>
+      <h1>Called to <em>Serve</em>,<br/>Committed to <em>Care</em></h1>
+      <p class="lead">Blessed At Home is a faith-inspired home health agency partnering with healthcare professionals across Bushnell and Central Florida — providing compassionate, person-centered in-home care for seniors and adults with disabilities.</p>
+      <div class="hero-btns">
+        <a href="referral.html" class="btn btn-forest">Make a Referral</a>
+        <a href="partners.html" class="btn btn-outline-forest">Partner With Us →</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-head">
+        <span class="cross">✝</span>
+        <span>At a Glance</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">12<span>+</span></div>
+        <div class="stat-label">In-home care services — personal, companion &amp; specialty care</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">24<span>/7</span></div>
+        <div class="stat-label">Around-the-clock care available for high-need clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">5<span>+</span></div>
+        <div class="stat-label">Payment pathways — VA benefits, LTC insurance &amp; more</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">100<span>%</span></div>
+        <div class="stat-label">Screened, background-checked, bonded &amp; insured caregivers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot">✝</span> Faith-Inspired Mission</div>
+  <div class="trust-item"><span class="trust-dot">✓</span> Background-Checked Caregivers</div>
+  <div class="trust-item"><span class="trust-dot">🛡</span> Bonded &amp; Insured</div>
+  <div class="trust-item"><span class="trust-dot">📋</span> Personalized Care Plans</div>
+  <div class="trust-item"><span class="trust-dot">📞</span> 7-Day Referral Response</div>
+</div>
+
+<!-- ABOUT / MISSION -->
+<section class="section section-cream">
+  <div class="about-grid">
+    <div>
+      <div class="eyebrow-label">Our Mission &amp; Faith</div>
+      <h2 style="color:var(--forest)">Rooted in Faith,<br/>Driven by Purpose</h2>
+      <div class="faith-rule"><span>✝</span></div>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.85;margin-bottom:20px;">The name <em style="font-family:'Cormorant Garamond',serif;color:var(--forest);">Blessed</em> isn't just a word — it's a calling. We believe every person, regardless of age or ability, deserves to live with dignity, comfort, and joy. Our caregivers don't just provide a service; they serve with heart and purpose.</p>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.85;margin-bottom:28px;">We believe aging isn't just about staying healthy, safe, and independent. <strong style="color:var(--forest);">It's about living well.</strong></p>
+      <div class="values-row">
+        <div class="value-item"><div class="vi">✝</div><div class="vl">Faith</div></div>
+        <div class="value-item"><div class="vi">🤲</div><div class="vl">Compassion</div></div>
+        <div class="value-item"><div class="vi">🕊</div><div class="vl">Dignity</div></div>
+        <div class="value-item"><div class="vi">⭐</div><div class="vl">Excellence</div></div>
+      </div>
+      <a href="partners.html" class="btn btn-outline-forest" style="margin-top:8px;">Learn About Partnering →</a>
+    </div>
+    <div class="about-verse">
+      <span class="cross-big">✝</span>
+      <blockquote>"Whatever you did for one of the least of these brothers and sisters of mine, you did for me."</blockquote>
+      <cite>Matthew 25:40</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-linen">
+  <div class="section-inner">
+    <div class="eyebrow-label">What We Offer</div>
+    <h2 style="color:var(--forest)">A Full Spectrum of In-Home Care</h2>
+    <div class="faith-rule"><span>✝</span></div>
+    <p class="section-intro">Every client receives a uniquely tailored care plan — built around their needs, preferences, and routines. From daily support to specialized medical condition care.</p>
+    <div class="svc-mini-grid">
+      <a href="services.html" class="svc-tile"><div class="icon">🧍</div><h3>Personal Care &amp; Hygiene</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">♿</div><h3>Mobility Assistance</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">💬</div><h3>Companion Care</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🧹</div><h3>Homemaking</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🚗</div><h3>Senior Transportation</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">💊</div><h3>Health Reminders</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🧠</div><h3>Alzheimer's &amp; Dementia</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🕊</div><h3>End-of-Life Support</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🌿</div><h3>Palliative Care</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🌙</div><h3>24-Hour Care</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">🌱</div><h3>Adults with Disabilities</h3></a>
+      <a href="services.html" class="svc-tile"><div class="icon">💪</div><h3>Wellness Support</h3></a>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="services.html" class="btn btn-forest">View All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE PARTNER WITH -->
+<section class="section section-cream">
+  <div class="section-inner">
+    <div class="eyebrow-label center">Who We Work With</div>
+    <h2 style="color:var(--forest);text-align:center;">Built for Healthcare Partners</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <p class="section-intro center">We serve as a trusted extension of your care team — from hospital discharge planners to hospice teams, veterans organizations, and faith communities.</p>
+    <div class="partner-chips">
+      <div class="partner-chip"><div class="p-icon">🏥</div><div><div class="p-name">Hospital Discharge Teams</div><div class="p-sub">Post-acute transitions</div></div></div>
+      <div class="partner-chip"><div class="p-icon">👨‍⚕️</div><div><div class="p-name">Physicians &amp; Specialists</div><div class="p-sub">Extending care into the home</div></div></div>
+      <div class="partner-chip"><div class="p-icon">🏨</div><div><div class="p-name">SNFs &amp; Rehab Centers</div><div class="p-sub">Post-rehab continuity</div></div></div>
+      <div class="partner-chip"><div class="p-icon">🕊</div><div><div class="p-name">Hospice &amp; Palliative Teams</div><div class="p-sub">End-of-life care partners</div></div></div>
+      <div class="partner-chip"><div class="p-icon">🤝</div><div><div class="p-name">Social Workers</div><div class="p-sub">Hospital &amp; community-based</div></div></div>
+      <div class="partner-chip"><div class="p-icon">🎖</div><div><div class="p-name">Veterans Organizations</div><div class="p-sub">VA A&amp;A benefits accepted</div></div></div>
+      <div class="partner-chip"><div class="p-icon">⛪</div><div><div class="p-name">Faith &amp; Senior Communities</div><div class="p-sub">Rooted in shared values</div></div></div>
+      <div class="partner-chip"><div class="p-icon">⚖️</div><div><div class="p-name">Elder Law &amp; Financial Advisors</div><div class="p-sub">Care planning support</div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="partners.html" class="btn btn-outline-forest">See How We Partner →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="section section-forest center">
+  <div class="section-inner" style="max-width:700px;">
+    <div class="scripture-block" style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.12);border-top-color:var(--gold);">
+      <span class="qmark" style="color:var(--gold-lt);">"</span>
+      <blockquote style="color:var(--white);font-size:1.45rem;">"She opens her hand to the poor and reaches out her hands to the needy."</blockquote>
+      <cite style="color:var(--gold-lt);">Proverbs 31:20</cite>
+    </div>
+    <p style="color:rgba(255,255,255,0.5);margin-top:24px;font-size:0.9rem;font-style:italic;font-family:'Cormorant Garamond',serif;">This verse lives at the heart of everything we do at Blessed At Home.</p>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="section section-linen">
+  <div class="section-inner">
+    <div class="eyebrow-label center">Paying for Care</div>
+    <h2 style="color:var(--forest);text-align:center;">Multiple Ways to Fund In-Home Care</h2>
+    <div class="faith-rule center"><span>✝</span></div>
+    <p class="section-intro center">We help families navigate funding options — removing financial barriers so care can begin when it's needed most.</p>
+    <div class="pay-pills">
+      <div class="pay-pill"><div class="pi">💳</div><h3>Private Pay</h3><p>Personal savings, assets, or family resources.</p></div>
+      <div class="pay-pill"><div class="pi">📄</div><h3>Long-Term Care Insurance</h3><p>LTC policies fund daily or weekly home care costs.</p></div>
+      <div class="pay-pill"><div class="pi">🎖</div><h3>Veterans Aid &amp; Attendance</h3><p>VA benefits for eligible veterans &amp; surviving spouses.</p></div>
+      <div class="pay-pill"><div class="pi">🏠</div><h3>Reverse Mortgage</h3><p>Home equity converted to tax-free income for seniors 62+.</p></div>
+      <div class="pay-pill"><div class="pi">🏦</div><h3>Senior Living Loans</h3><p>Specialized loans for up to 3 years of long-term care.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="payment.html" class="btn btn-forest">Explore Payment Options →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="eyebrow-label">Ready to Partner?</div>
+  <h2>Start a Referral Today</h2>
+  <p>Whether you have a client ready for placement or simply want to learn more, our team is ready — 7 days a week.</p>
+  <div class="cta-actions">
+    <a href="referral.html" class="btn btn-gold">Submit a Referral ✦</a>
+    <a href="partners.html" class="btn btn-outline-white">Learn More</a>
+  </div>
+  <p style="color:rgba(255,255,255,0.45);font-size:0.83rem;margin-top:24px;position:relative;">📞 Call us directly: <strong style="color:var(--gold-lt);">352-406-4939</strong></p>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="cross">✝</span> Blessed At Home</div>
+        <div class="footer-verse">"Whatever you did for one of the least of these… you did for me." — Matthew 25:40</div>
+        <p>A faith-inspired home health agency serving seniors and adults with disabilities across Bushnell and Central Florida. Compassion is our calling.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="partners.html">Partner With Us</a></li>
+          <li><a href="payment.html">Payment Options</a></li>
+          <li><a href="referral.html" class="highlight">Make a Referral →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Personal Care</li>
+          <li>Companion Care</li>
+          <li>Alzheimer's &amp; Dementia</li>
+          <li>End-of-Life Support</li>
+          <li>Palliative Care</li>
+          <li>24-Hour Care</li>
+          <li>Adults with Disabilities</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>📞 352-406-4939</li>
+          <li>📍 138 Bushnell Plaza</li>
+          <li>Suite 303</li>
+          <li>Bushnell, FL 33513</li>
+          <li style="margin-top:10px;color:rgba(255,255,255,0.35);">Referrals 7 days a week</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blessed At Home · Home Health Agency · Bushnell, FL</span>
+      <span>Faith · Compassion · Dignity</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
