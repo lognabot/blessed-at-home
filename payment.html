@@ -8,7 +8,7 @@
   <style>
     .payment-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 24px;
       max-width: 1180px;
       margin: 0 auto;
@@ -72,8 +72,15 @@
     .faq-item p { font-size: 0.89rem; color: var(--muted); line-height: 1.78; }
     @media(max-width:680px){
       .payment-grid { grid-template-columns: 1fr; }
-      .pay-card-head { padding: 18px 20px; }
+      .pay-card-head { padding: 18px 20px; flex-wrap: wrap; gap: 10px; }
+      .pay-card-head .pay-badge { margin-left: 0; }
       .pay-card-body { padding: 20px; }
+      .pay-tip { font-size: 0.8rem; }
+    }
+    @media(max-width:400px){
+      .pay-card-head { padding: 16px; }
+      .pay-icon-circle { width: 40px; height: 40px; font-size: 1.1rem; }
+      .pay-card-head h3 { font-size: 0.95rem; }
     }
   </style>
 </head>

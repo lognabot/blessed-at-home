@@ -220,8 +220,9 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 20px;
   flex-wrap: wrap;
+  overflow-x: hidden;
 }
 .trust-item {
   display: flex;
@@ -232,6 +233,7 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
   font-weight: 500;
   color: rgba(255,255,255,0.8);
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 .trust-dot { color: var(--gold-lt); font-size: 1rem; }
 
@@ -403,6 +405,20 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
   font-weight: 600;
   color: var(--forest);
   margin-bottom: 0;
+}
+
+/* ══════════════════════════════════════
+   CARD GRIDS
+══════════════════════════════════════ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 /* ══════════════════════════════════════
@@ -775,8 +791,21 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
   h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); }
   h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
 
-  .trust-bar { gap: 18px; padding: 14px 4%; }
+  .trust-bar { gap: 14px; padding: 14px 4%; }
   .trust-item { font-size: 0.75rem; }
+
+  .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MID-TABLET (≤768px)
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section { padding: 60px 4%; }
+  .trust-bar { gap: 10px; }
+  .trust-item { font-size: 0.73rem; }
+  .card-grid-3 { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
 }
 
 /* ══════════════════════════════════════
@@ -807,12 +836,16 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
 
   /* Trust bar */
   .trust-bar {
-    gap: 10px;
+    gap: 8px;
     padding: 12px 4%;
     justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  .trust-item { font-size: 0.74rem; gap: 6px; }
-  .trust-dot { font-size: 0.85rem; }
+  .trust-bar::-webkit-scrollbar { display: none; }
+  .trust-item { font-size: 0.72rem; gap: 5px; flex-shrink: 0; }
+  .trust-dot { font-size: 0.8rem; }
 
   /* Forms */
   .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -826,7 +859,7 @@ h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
 
   /* Cards */
   .card-grid,
-  .card-grid-3 { grid-template-columns: 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr !important; }
 
   /* Process */
   .process-row { grid-template-columns: 1fr 1fr; }

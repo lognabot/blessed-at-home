@@ -44,8 +44,8 @@
       margin: 0 auto;
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 60px;
+      grid-template-columns: 1fr minmax(0, 380px);
+      gap: 48px;
       align-items: center;
       padding: 80px 0;
       position: relative;
@@ -233,24 +233,35 @@
     .pay-pill h3 { font-family: 'Nunito', sans-serif; font-size: 0.87rem; font-weight: 600; color: var(--forest); margin-bottom: 4px; }
     .pay-pill p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1060px) {
       .home-hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .home-hero::after { display: none; }
+      .home-hero::before { display: none; }
+      .hero-panel { max-width: 560px; }
+    }
+    @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
       .hero-panel { max-width: 100%; }
     }
     @media (max-width: 680px) {
       .home-hero { padding: 0 4%; }
-      .home-hero-inner { padding: 48px 0 40px; gap: 28px; }
+      .home-hero-inner { padding: 48px 0 40px; gap: 24px; }
       .hero-panel { padding: 22px 18px; }
       .stat-big { font-size: 1.8rem; }
-      .values-row { gap: 14px; }
+      .values-row { flex-wrap: wrap; gap: 12px; }
+      .value-item { min-width: 60px; }
       .value-item .vi { font-size: 1.2rem; }
       .svc-mini-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .svc-tile { padding: 18px 14px; }
       .svc-tile .icon { font-size: 1.2rem; margin-bottom: 7px; }
       .partner-chips { grid-template-columns: 1fr; gap: 10px; }
       .pay-pills { grid-template-columns: 1fr; gap: 12px; }
+    }
+    @media (max-width: 400px) {
+      .hero-eyebrow { font-size: 0.62rem; padding: 5px 12px; }
+      .svc-mini-grid { grid-template-columns: 1fr 1fr; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
